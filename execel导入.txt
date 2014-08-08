@@ -1,0 +1,11 @@
+1、去http://sourceforge.net/projects/phpexcelreader下载
+2、将压缩包解压，并放到www目录下
+3、运行时，会出现几个错误
+    1---Deprecated: Assigning the return value of new by reference is deprecated in D:\wamp\www\phpExcelReader\phpExcelReader\Excel\reader.php on line 261
+    解决方案:将reader.php里的 &= 全部改成 =
+    
+    2--- Warning: require_once(Spreadsheet/Excel/Reader/OLERead.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in D:\wamp\www\phpExcelReader\phpExcelReader\Excel\reader.php on line 31
+    解决方案:将oleread.inc改为oleread.php，并将reader.php里的第31行代码
+    require_once 'Spreadsheet/Excel/Reader/OLERead.php';
+    改成
+    require_once 'oleread.php'
